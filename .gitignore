@@ -1,0 +1,8 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.tgz
+*.bak
+*.bak2
+.DS_Store

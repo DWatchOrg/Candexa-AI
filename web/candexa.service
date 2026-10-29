@@ -1,0 +1,14 @@
+[Unit]
+Description=Candexa website
+After=network.target
+
+[Service]
+User=candexa
+WorkingDirectory=/opt/candexa/app
+EnvironmentFile=/opt/candexa/.env
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

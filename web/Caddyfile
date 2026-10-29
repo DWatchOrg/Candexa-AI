@@ -1,0 +1,14 @@
+{
+	email geojax90@gmail.com
+}
+
+candexa.ai, www.candexa.ai {
+	encode zstd gzip
+	@www host www.candexa.ai
+	redir @www https://candexa.ai{uri} permanent
+	reverse_proxy 127.0.0.1:3000
+}
+
+:80 {
+	reverse_proxy 127.0.0.1:3000
+}

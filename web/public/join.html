@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--seo-->
+<title>Book a demo or join the waitlist · Candexa</title>
+<meta name="description" content="See Candexa on your own work in a 30-minute demo, or join the waitlist for early access.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="canonical" href="https://candexa.ai/join">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Candexa">
+<meta property="og:title" content="Book a demo or join the waitlist · Candexa">
+<meta property="og:description" content="See Candexa on your own work in a 30-minute demo, or join the waitlist for early access.">
+<meta property="og:url" content="https://candexa.ai/join">
+<meta property="og:image" content="https://candexa.ai/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Candexa AI: Hire people smarter than your AI agents, then keep them that way.">
+<meta name="twitter:image:alt" content="Candexa AI: Hire people smarter than your AI agents, then keep them that way.">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book a demo or join the waitlist · Candexa">
+<meta name="twitter:description" content="See Candexa on your own work in a 30-minute demo, or join the waitlist for early access.">
+<meta name="twitter:image" content="https://candexa.ai/assets/og-image.jpg">
+<!--/seo-->
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Book a demo or join the waitlist · Candexa</title>
+<meta name="description" content="See Candexa on your own work in a 30-minute demo, or join the waitlist for early access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FEF9F5;color:#20191D;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+a{color:#C3540F;text-underline-offset:3px}
+a:hover{color:#9A410B}
+:focus-visible{outline:2px solid #C3540F;outline-offset:3px}
+input:focus,select:focus{box-shadow:inset 0 0 0 1.5px #C3540F !important}
+</style>
+</helmet>
+
+<dc-import name="Nav" active="join" hint-size="100%,64px"></dc-import>
+
+<main>
+<section data-screen-label="Join" style="position:relative;overflow:hidden;padding:clamp(56px,7vw,104px) 24px clamp(72px,9vw,128px)">
+  <div style="position:absolute;left:-10%;top:-10%;width:70%;aspect-ratio:1;background:radial-gradient(closest-side,rgba(255,130,51,.3),rgba(255,130,51,0));filter:blur(20px);pointer-events:none"></div>
+  <div style="position:relative;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:22px;padding-top:8px">
+      <h1 style="margin:0;font-weight:300;font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-0.035em;text-wrap:balance">{{ headA }}<span style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;letter-spacing:-0.025em">{{ headB }}</span></h1>
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#3A3035;max-width:520px">{{ sub }}</p>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px">
+        <sc-for list="{{ points }}" as="pt" hint-placeholder-count="3">
+          <div style="display:flex;align-items:flex-start;gap:14px;font-size:16px;line-height:1.5"><span style="width:26px;height:26px;border-radius:50%;background:#20191D;color:#FF8233;display:grid;place-items:center;font-size:12px;font-weight:700;flex:none">✓</span>{{ pt }}</div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="border-radius:28px;background:#FFFFFF;box-shadow:0 0 0 1px rgba(32,25,29,.06),0 40px 80px -40px rgba(32,25,29,.4);padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:22px">
+      <div role="tablist" style="display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:999px;background:#FAF4EF;gap:4px">
+        <button role="tab" onClick="{{ pickDemo }}" style="all:unset;cursor:pointer;text-align:center;padding:12px;border-radius:999px;font-size:15px;font-weight:500;background:{{ dBg }};color:{{ dFg }};transition:background .2s">Book a demo</button>
+        <button role="tab" onClick="{{ pickWait }}" style="all:unset;cursor:pointer;text-align:center;padding:12px;border-radius:999px;font-size:15px;font-weight:500;background:{{ wBg }};color:{{ wFg }};transition:background .2s">Join the waitlist</button>
+      </div>
+      <sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:14px">
+          <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px">
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Full name<input required="" name="name" autocomplete="name" style="font:inherit;font-size:16px;padding:14px 16px;border-radius:14px;border:0;outline:none;background:#FAF4EF;box-shadow:inset 0 0 0 1px rgba(32,25,29,.08)"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Work email<input required="" type="email" name="email" autocomplete="email" style="font:inherit;font-size:16px;padding:14px 16px;border-radius:14px;border:0;outline:none;background:#FAF4EF;box-shadow:inset 0 0 0 1px rgba(32,25,29,.08)"></label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Company<input required="" name="company" autocomplete="organization" style="font:inherit;font-size:16px;padding:14px 16px;border-radius:14px;border:0;outline:none;background:#FAF4EF;box-shadow:inset 0 0 0 1px rgba(32,25,29,.08)"></label>
+          <sc-if value="{{ isDemo }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Company size<select name="size" style="font:inherit;font-size:16px;padding:14px 16px;border-radius:14px;border:0;outline:none;background:#FAF4EF;box-shadow:inset 0 0 0 1px rgba(32,25,29,.08)"><option>1–50</option><option>51–200</option><option>201–1,000</option><option>1,000+</option></select></label>
+              <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:500">What are you most interested in?
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ interests }}" as="it" hint-placeholder-count="3">
+                    <button type="button" onClick="{{ it.toggle }}" style="all:unset;cursor:pointer;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:500;background:{{ it.bg }};color:{{ it.fg }};box-shadow:{{ it.ring }}">{{ it.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+          <button type="submit" style="all:unset;cursor:pointer;text-align:center;margin-top:6px;padding:16px;border-radius:999px;background:#C3540F;color:#FFFFFF;font-size:16px;font-weight:500;box-shadow:0 10px 24px -10px rgba(195,84,15,.7)" style-hover="background:#A8470B">{{ submitLabel }}</button>
+          <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:14px;color:#B42318;text-align:center">{{ err }}</span></sc-if>
+          <span style="font-size:13px;color:#5E5358;text-align:center">We'll only use your details to contact you about Candexa. GDPR and NDPR compliant.</span>
+        </form>
+      </sc-if>
+      <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:40px 12px">
+          <span style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#FF8233,#C3540F);color:#FFFFFF;display:grid;place-items:center;font-size:28px;box-shadow:0 16px 32px -12px rgba(195,84,15,.7)">✓</span>
+          <span style="font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:28px">{{ doneTitle }}</span>
+          <span style="font-size:16px;line-height:1.6;color:#5E5358;max-width:380px">{{ doneBody }}</span>
+          <button onClick="{{ reset }}" style="all:unset;cursor:pointer;margin-top:8px;font-size:15px;font-weight:500;color:#C3540F">← Back</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mode: (typeof location !== 'undefined' && location.search.indexOf('waitlist') > -1) ? 'wait' : 'demo', done: false, picks: { Hire: true } };
+  renderVals() {
+    const demo = this.state.mode === 'demo';
+    const interests = ['Hire', 'Upskill', 'Visibility and ROI'].map(label => { const on = !!this.state.picks[label]; return { label, bg: on ? '#20191D' : '#FFFFFF', fg: on ? '#FEF9F5' : '#20191D', ring: on ? 'none' : 'inset 0 0 0 1px rgba(32,25,29,.16)', toggle: () => this.setState(s => ({ picks: { ...s.picks, [label]: !s.picks[label] } })) }; });
+    return {
+      isDemo: demo, done: this.state.done, notDone: !this.state.done, interests,
+      headA: demo ? 'See Candexa on ' : 'Be first to build an ', headB: demo ? 'your own work.' : 'AI-first workforce.',
+      sub: demo ? 'A 30-minute walkthrough with our team, built around a real process from your organisation.' : 'Join the waitlist for early access. We onboard new teams in small groups so every rollout gets real attention.',
+      points: demo ? ['A live work simulation built from one of your processes', 'A sample debrief with Agency Index and readiness level', 'A plan that fits your hiring and upskilling goals'] : ['Early access as new seats open', 'The free AI-First Starter for your team', 'Updates as new features ship'],
+      dBg: demo ? '#20191D' : 'transparent', dFg: demo ? '#FEF9F5' : '#20191D', wBg: demo ? 'transparent' : '#20191D', wFg: demo ? '#20191D' : '#FEF9F5',
+      pickDemo: () => this.setState({ mode: 'demo', done: false, err: '' }), pickWait: () => this.setState({ mode: 'wait', done: false, err: '' }),
+      submitLabel: this.state.busy ? 'Sending…' : (demo ? 'Request my demo and pick a time' : 'Join the waitlist'), hasErr: !!this.state.err, err: this.state.err || '',
+      submit: async e => { e.preventDefault(); if (this.state.busy) return; const post = async (url, body) => { const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.error || 'Something went wrong. Please try again.'); return j; }; const fd = Object.fromEntries(new FormData(e.target)); const interests = Object.keys(this.state.picks).filter(k => this.state.picks[k]).join(', '); (window.dataLayer = window.dataLayer || []).push({ event: demo ? 'demo_request' : 'waitlist_signup', from: 'join_page' }); this.setState({ busy: true, err: '' }); try { const j = await post(demo ? '/api/demo' : '/api/waitlist', demo ? { ...fd, team_size: fd.size, interests } : { ...fd, source: 'join_page' }); if (demo && j.redirect) { window.location.href = j.redirect; return; } this.setState({ done: true, busy: false }); } catch (err) { this.setState({ busy: false, err: err.message }); } },
+      doneTitle: demo ? "You're booked in." : "You're on the list.",
+      doneBody: demo ? "Taking you to our calendar to pick a time…" : "We'll be in touch as soon as a seat opens for your team.",
+      reset: () => this.setState({ done: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

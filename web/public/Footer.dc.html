@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<footer style="background:#20191D;color:#FEF9F5">
+  <div style="max-width:1280px;margin:0 auto;padding:72px 24px 32px;display:flex;flex-direction:column;gap:56px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:40px">
+      <div style="display:flex;flex-direction:column;gap:18px;grid-column:span 2;min-width:min(100%,320px)">
+        <img src="/assets/candexa-logo-light.png" alt="Candexa AI" style="height:28px;width:auto;align-self:flex-start">
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#D9CCC4;max-width:360px">The AI-first evaluation and training platform for knowledge work. Build custom simulations around your own processes to evaluate new hires and train existing teams.</p>
+        <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ join }}" style="display:flex;gap:6px;max-width:400px;padding:5px;border-radius:999px;background:#2C2328;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)">
+            <input type="email" required="" placeholder="Work email" aria-label="Work email" style="flex:1;min-width:0;background:transparent;border:0;outline:none;color:#FEF9F5;font:inherit;font-size:14px;padding:0 14px">
+            <button type="submit" style="all:unset;cursor:pointer;padding:10px 16px;border-radius:999px;background:#C3540F;color:#FFFFFF;font-size:14px;font-weight:500;white-space:nowrap">{{ joinLabel }}</button>
+          </form>
+          <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><div role="alert" style="font-size:13px;color:#FFB4A8">{{ err }}</div></sc-if>
+        </sc-if>
+        <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:14px;color:#FFD9BF">✓ You're on the list. We'll be in touch.</div>
+        </sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14px">
+        <span style="font-weight:600;color:#FEF9F5">Platform</span>
+        <a href="/product#hire" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">Hire</a>
+        <a href="/product#upskill" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">Upskill</a>
+        <a href="/product#roi" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">Visibility and ROI</a>
+        <a href="/product#how" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">How it works</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14px">
+        <span style="font-weight:600;color:#FEF9F5">Company</span>
+        <a href="/why" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">Why Candexa</a>
+        <a href="/pricing" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">Pricing</a>
+        <a href="/join" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">Book a demo</a>
+        <a href="/join?waitlist" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">Join the waitlist</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14px">
+        <span style="font-weight:600;color:#FEF9F5">Legal</span>
+        <a href="/privacy" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">Privacy</a>
+        <a href="/terms" style="color:#BFB1A9;text-decoration:none" style-hover="color:#FEF9F5">Terms</a>
+        <button onClick="{{ toggleSources }}" style="all:unset;cursor:pointer;color:#BFB1A9" style-hover="color:#FEF9F5">Sources {{ srcIcon }}</button>
+      </div>
+    </div>
+    <sc-if value="{{ sources }}" hint-placeholder-val="{{ false }}">
+      <ul style="margin:0;padding:0 0 0 18px;font-size:13px;line-height:1.8;color:#BFB1A9">
+        <li>95% no measurable GenAI return: MIT NANDA, The GenAI Divide, 2025</li>
+        <li>19% slower, felt 20% faster: METR randomised trial, 2025</li>
+        <li>1 in 5 breaches involve shadow AI: IBM Cost of a Data Breach 2025</li>
+      </ul>
+    </sc-if>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#BFB1A9">
+      <span>© 2026 Candexa AI. All rights reserved.</span>
+      <span>GDPR and NDPR compliant</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1280px&quot;,&quot;height&quot;:&quot;460px&quot;}}">
+class Component extends DCLogic {
+  state = { joined: false, sources: false };
+  renderVals() {
+    return {
+      joined: this.state.joined, notJoined: !this.state.joined,
+      join: async e => { e.preventDefault(); if (this.state.busy) return; const post = async (url, body) => { const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.error || 'Something went wrong. Please try again.'); return j; }; const email = (e.target.querySelector('input[type=email]') || {}).value; (window.dataLayer = window.dataLayer || []).push({ event: 'waitlist_signup', from: 'footer' }); this.setState({ busy: true, err: '' }); try { await post('/api/waitlist', { email, source: 'footer' }); this.setState({ joined: true, busy: false }); } catch (err) { this.setState({ busy: false, err: err.message }); } }, hasErr: !!this.state.err, err: this.state.err || '', joinLabel: this.state.busy ? 'Joining…' : 'Join the waitlist',
+      sources: this.state.sources, srcIcon: this.state.sources ? '−' : '+',
+      toggleSources: () => this.setState(s => ({ sources: !s.sources })),
+    };
+  }
+}
+</script>
+</body>
+</html>
